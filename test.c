@@ -7,7 +7,7 @@ int test(){
   return 0;
 }
 
-int main(){
+int 11(){
   int i;
   int a[10];
   int x = a[i];
