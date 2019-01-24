@@ -1,4 +1,4 @@
-int main(){
+int test(){
   int i;
   int a[10];
   int x = a[i];
