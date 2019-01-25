@@ -1,4 +1,10 @@
-void test() {
-  int x;
-  x = 1; // warn
+unsigned int A;
+unsigned int B;
+void main(unsigned int x, unsigned int y)
+{
+  /*@ assert Value: division_by_zero: (unsigned int)(x*y) ≢ 0; */
+  A = 100u / (x * y);
+  /*@ assert Value: division_by_zero: x ≢ 0; */
+  B = 333u % x;
+  return;
 }
