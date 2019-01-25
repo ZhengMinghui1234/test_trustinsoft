@@ -3,11 +3,11 @@
  * Contributed by  (Minghui Zheng) <zhengminghui@ticpsh.com>
  */
 
-#include <boost/iostreams/device/file_descriptor.hpp>
-#include <boost/iostreams/stream.hpp>
+//#include <boost/iostreams/device/file_descriptor.hpp>
+//#include <boost/iostreams/stream.hpp>
 #include "return_result.h"
 
-namespace fs = boost::filesystem;
+//namespace fs = boost::filesystem;
 static const char *compile_command = "./cc.sh";
 
 std::pair<bool, std::vector<CompileMessage>> GetCompileMessage(const fs::path &project_dir, const std::string &file, const std::string &include_option, const std::string &define_option)
@@ -39,12 +39,12 @@ std::pair<bool, std::vector<CompileMessage>> GetCompileMessage(const fs::path &p
   command += " 2>&1";
   FILE *errorfile = popen(command.c_str(), "r");
   if (errorfile) {
-    boost::iostreams::stream<boost::iostreams::file_descriptor_source> error_stream(boost::iostreams::file_descriptor_source(fileno(errorfile), boost::iostreams::never_close_handle));
-    std::string temp_err;
-    while (getline(error_stream, temp_err)) {
-      err_all.push_back(std::move(temp_err));
-    }
-    error_stream.close();
+    //boost::iostreams::stream<boost::iostreams::file_descriptor_source> error_stream(boost::iostreams::file_descriptor_source(fileno(errorfile), boost::iostreams::never_close_handle));
+    //std::string temp_err;
+    //while (getline(error_stream, temp_err)) {
+     // err_all.push_back(std::move(temp_err));
+    //}
+    //error_stream.close();
     return_value = (pclose(errorfile) == 0);
   } else {
     throw std::runtime_error(std::string("Failed to launch compile module") + strerror(errno));
