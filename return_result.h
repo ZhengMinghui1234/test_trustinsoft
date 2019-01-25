@@ -10,7 +10,7 @@
 #include <regex>
 #include <limits.h>
 #include <vector>
-#include <boost/filesystem.hpp>
+//#include <boost/filesystem.hpp>
 
 struct CompileMessage
 {
